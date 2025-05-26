@@ -18,8 +18,8 @@ app.get('/api/usuarios', async (req, res) => {
 });
 
 app.post('/api/usuarios', async (req, res) => {
-  const { nombre, email } = req.body;
-  await pool.query('INSERT INTO usuarios (id, nombre, email) VALUES (gen_random_uuid(), $1, $2)', [nombre, email]);
+  const { nombre, email, telefono } = req.body;
+  await pool.query('INSERT INTO usuarios (id, nombre, email) VALUES (gen_random_uuid(), $1, $2)', [nombre, email, telefono]);
   res.json({ mensaje: 'Usuario agregado' });
 });
 
